@@ -31,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
     background: "#f0f2f5",
   },
   drawer: {
-    width: 80,
+    width: 104,
     flexShrink: 0,
   },
   drawerPaper: {
-    width: 80,
+    width: 104,
     background: theme.palette.primary.main,
   },
   drawerContainer: {
@@ -46,12 +46,30 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(2),
   },
+  toolbar: {
+    paddingLeft: 10,
+    paddingRight: 45,
+    height: 100,
+  },
   whiteIcon: {
     color: "white",
     margin: "auto",
+    marginTop: 15,
+    marginBottom: 15,
   },
   blackIcon: {
     color: "black",
+    marginRight: 15,
+  },
+  menuIcon: {
+    color: "black",
+    marginRight: 20,
+    marginLeft: 30,
+  },
+  navLogo: {
+    width: 218,
+    height: 65,
+    marginRight: "auto",
   },
 }));
 
@@ -61,14 +79,13 @@ const Index = ({ children }) => {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <img src={salesfooLogo} style={{ marginRight: "auto" }} width={150} />
-
+        <Toolbar className={classes.toolbar}>
+          <img src={salesfooLogo} className={classes.navLogo} />
           <PersonRoundedIcon className={classes.blackIcon} />
           <SearchOutlinedIcon className={classes.blackIcon} />
           <MenuOutlinedIcon className={classes.blackIcon} />
           <NotificationsOutlinedIcon className={classes.blackIcon} />
-          <MoreVertOutlinedIcon className={classes.blackIcon} />
+          <MoreVertOutlinedIcon className={classes.menuIcon} />
           <Avatar alt="Sales" src="" />
         </Toolbar>
       </AppBar>
@@ -82,7 +99,7 @@ const Index = ({ children }) => {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            <ListItem className={classes.marginAuto} button>
+            <ListItem button>
               <HomeRoundedIcon className={classes.whiteIcon} />
             </ListItem>
             <ListItem button>
@@ -100,10 +117,7 @@ const Index = ({ children }) => {
           </List>
         </div>
       </Drawer>
-      <main className={classes.content}>
-        {/* <Toolbar /> */}
-        {children}
-      </main>
+      <main className={classes.content}>{children}</main>
     </div>
   );
 };
