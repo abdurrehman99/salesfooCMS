@@ -16,6 +16,11 @@ import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
+import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
+import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
+import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
+import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,7 +48,10 @@ const useStyles = makeStyles((theme) => ({
   },
   whiteIcon: {
     color: "white",
-    textAlign: "center",
+    margin: "auto",
+  },
+  blackIcon: {
+    color: "black",
   },
 }));
 
@@ -54,7 +62,14 @@ const Index = ({ children }) => {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <img src={salesfooLogo} width={150} />
+          <img src={salesfooLogo} style={{ marginRight: "auto" }} width={150} />
+
+          <PersonRoundedIcon className={classes.blackIcon} />
+          <SearchOutlinedIcon className={classes.blackIcon} />
+          <MenuOutlinedIcon className={classes.blackIcon} />
+          <NotificationsOutlinedIcon className={classes.blackIcon} />
+          <MoreVertOutlinedIcon className={classes.blackIcon} />
+          <Avatar alt="Sales" src="" />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -67,37 +82,26 @@ const Index = ({ children }) => {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            <ListItem button>
-              <ListItemIcon>
-                <HomeRoundedIcon className={classes.whiteIcon} />
-              </ListItemIcon>
+            <ListItem className={classes.marginAuto} button>
+              <HomeRoundedIcon className={classes.whiteIcon} />
             </ListItem>
             <ListItem button>
-              <ListItemIcon>
-                <SettingsRoundedIcon className={classes.whiteIcon} />
-              </ListItemIcon>
+              <SettingsRoundedIcon className={classes.whiteIcon} />
             </ListItem>
             <ListItem button>
-              <ListItemIcon>
-                <PersonRoundedIcon className={classes.whiteIcon} />
-              </ListItemIcon>
-            </ListItem>
-
-            <ListItem button>
-              <ListItemIcon>
-                <ImageOutlinedIcon className={classes.whiteIcon} />
-              </ListItemIcon>
+              <PersonRoundedIcon className={classes.whiteIcon} />
             </ListItem>
             <ListItem button>
-              <ListItemIcon>
-                <AccountCircleOutlinedIcon className={classes.whiteIcon} />
-              </ListItemIcon>
+              <ImageOutlinedIcon className={classes.whiteIcon} />
+            </ListItem>
+            <ListItem button>
+              <AccountCircleOutlinedIcon className={classes.whiteIcon} />
             </ListItem>
           </List>
         </div>
       </Drawer>
       <main className={classes.content}>
-        <Toolbar />
+        {/* <Toolbar /> */}
         {children}
       </main>
     </div>
