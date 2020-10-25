@@ -8,8 +8,9 @@ import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import Collapse from "@material-ui/core/Collapse";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
@@ -27,7 +28,7 @@ import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import Avatar from "@material-ui/core/Avatar";
 import salesfooLogo from "../../assets/salesfoo.png";
 
-const drawerWidth = 260;
+const drawerWidth = 280;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,10 +43,17 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 45,
     height: 80,
   },
+  nested: {
+    paddingLeft: theme.spacing(10),
+  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: "nowrap",
+  },
+  submenu: {
+    borderLeftWidth: 1,
+    borderLeftColor: "red",
   },
   drawerOpen: {
     width: drawerWidth,
@@ -113,9 +121,37 @@ const Index = ({ children }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const [configuration, setConfiguration] = useState(false);
+  const [user, setUser] = useState(false);
+  const [sales, setSales] = useState(false);
+  const [customer, setCustomer] = useState(false);
 
   const toggleDrawer = () => {
     setOpen((prevState) => !prevState);
+    setConfiguration(false);
+    setUser(false);
+    setSales(false);
+    setCustomer(false);
+  };
+
+  const handleConfigurationClick = () => {
+    setConfiguration(!configuration);
+    if (!open) setOpen(true);
+  };
+
+  const handleUserClick = () => {
+    setUser(!user);
+    if (!open) setOpen(true);
+  };
+
+  const handleSalesClick = () => {
+    setSales(!sales);
+    if (!open) setOpen(true);
+  };
+
+  const handleCustomerClick = () => {
+    setCustomer(!customer);
+    if (!open) setOpen(true);
   };
 
   return (
@@ -152,30 +188,80 @@ const Index = ({ children }) => {
             </ListItemIcon>
             <ListItemText primary={"DASHBOARD"} />
           </ListItem>
-          <ListItem button>
+
+          <ListItem onClick={handleConfigurationClick} button>
             <ListItemIcon>
               <SettingsRoundedIcon className={classes.drawerIcon} />
             </ListItemIcon>
             <ListItemText primary={"CONFIGURATION"} />
           </ListItem>
-          <ListItem button>
+          <Collapse in={configuration} timeout="auto" unmountOnExit>
+            <List className={classes.submenu} component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Template" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Picklist" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Currency" />
+              </ListItem>
+            </List>
+          </Collapse>
+
+          <ListItem onClick={handleUserClick} button>
             <ListItemIcon>
               <PersonRoundedIcon className={classes.drawerIcon} />
             </ListItemIcon>
             <ListItemText primary={"USER"} />
           </ListItem>
-          <ListItem button>
+          <Collapse in={user} timeout="auto" unmountOnExit>
+            <List className={classes.submenu} component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Access Management" />
+              </ListItem>
+            </List>
+          </Collapse>
+
+          <ListItem onClick={handleSalesClick} button>
             <ListItemIcon>
               <ImageOutlinedIcon className={classes.drawerIcon} />
             </ListItemIcon>
             <ListItemText primary={"SALES"} />
           </ListItem>
-          <ListItem button>
+          <Collapse in={sales} timeout="auto" unmountOnExit>
+            <List className={classes.submenu} component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Path" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Lead" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Deal" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Story Board" />
+              </ListItem>
+            </List>
+          </Collapse>
+
+          <ListItem onClick={handleCustomerClick} button>
             <ListItemIcon>
               <AccountCircleOutlinedIcon className={classes.drawerIcon} />
             </ListItemIcon>
             <ListItemText primary={"CUSTOMER"} />
           </ListItem>
+          <Collapse in={customer} timeout="auto" unmountOnExit>
+            <List className={classes.submenu} component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Account" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Customer" />
+              </ListItem>
+            </List>
+          </Collapse>
         </List>
         <ListItem style={{ marginTop: "auto" }} onClick={toggleDrawer} button>
           <ListItemIcon>
