@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import useStyles from "./style";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -22,57 +22,6 @@ import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined"
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import Avatar from "@material-ui/core/Avatar";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    background: "#f0f2f5",
-  },
-  drawer: {
-    width: 104,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: 104,
-    background: theme.palette.primary.main,
-  },
-  drawerContainer: {
-    overflow: "auto",
-    color: "white",
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(2),
-  },
-  toolbar: {
-    paddingLeft: 10,
-    paddingRight: 45,
-    height: 100,
-  },
-  whiteIcon: {
-    color: "white",
-    margin: "auto",
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  blackIcon: {
-    color: "black",
-    marginRight: 15,
-  },
-  menuIcon: {
-    color: "black",
-    marginRight: 20,
-    marginLeft: 30,
-  },
-  navLogo: {
-    width: 218,
-    height: 65,
-    marginRight: "auto",
-  },
-}));
-
 const Index = ({ children }) => {
   const classes = useStyles();
   return (
@@ -86,7 +35,7 @@ const Index = ({ children }) => {
           <MenuOutlinedIcon className={classes.blackIcon} />
           <NotificationsOutlinedIcon className={classes.blackIcon} />
           <MoreVertOutlinedIcon className={classes.menuIcon} />
-          <Avatar alt="Sales" src="" />
+          <Avatar alt="Sales" src="" className={classes.avatar} />
         </Toolbar>
       </AppBar>
       <Drawer
