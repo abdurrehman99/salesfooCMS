@@ -1,16 +1,20 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState } from "react";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import salesfooLogo from "../../assets/salesfoo.png";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
@@ -21,6 +25,9 @@ import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import Avatar from "@material-ui/core/Avatar";
+import salesfooLogo from "../../assets/salesfoo.png";
+
+const drawerWidth = 260;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,33 +37,61 @@ const useStyles = makeStyles((theme) => ({
     zIndex: theme.zIndex.drawer + 1,
     background: "#f0f2f5",
   },
-  drawer: {
-    width: 104,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: 104,
-    background: theme.palette.primary.main,
-  },
-  drawerContainer: {
-    overflow: "auto",
-    color: "white",
-    marginTop: 45,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(2),
-  },
   toolbar: {
     paddingLeft: 10,
     paddingRight: 45,
-    height: 100,
+    height: 80,
   },
-  whiteIcon: {
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: "nowrap",
+  },
+  drawerOpen: {
+    width: drawerWidth,
+    background: theme.palette.primary.main,
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  drawerClose: {
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    overflowX: "hidden",
+    width: theme.spacing(7) + 1,
+    background: theme.palette.primary.main,
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing(9) + 1,
+    },
+  },
+  content: {
+    flexGrow: 1,
+    marginTop: 100,
+    padding: theme.spacing(3),
+  },
+  navLogo: {
+    width: 218,
+    height: 65,
+    marginRight: "auto",
+  },
+  drawerIcon: {
     color: "white",
-    margin: "auto",
     marginTop: 15,
     marginBottom: 15,
+    marginLeft: 5,
+  },
+  toggleIcon: {
+    marginLeft: 5,
+    color: "white",
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  textWhite: {
+    color: "white",
+    paddingTop: 110,
   },
   blackIcon: {
     color: "black",
@@ -69,11 +104,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 20,
     marginLeft: 30,
   },
-  navLogo: {
-    width: 218,
-    height: 65,
-    marginRight: "auto",
-  },
   avatar: {
     cursor: "pointer",
   },
@@ -81,12 +111,19 @@ const useStyles = makeStyles((theme) => ({
 
 const Index = ({ children }) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setOpen((prevState) => !prevState);
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
-          <img src={salesfooLogo} className={classes.navLogo} />
+          <img src={salesfooLogo} alt="" className={classes.navLogo} />
           <PersonRoundedIcon className={classes.blackIcon} />
           <SearchOutlinedIcon className={classes.blackIcon} />
           <MenuOutlinedIcon className={classes.blackIcon} />
@@ -96,32 +133,59 @@ const Index = ({ children }) => {
         </Toolbar>
       </AppBar>
       <Drawer
-        className={classes.drawer}
         variant="permanent"
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
+        })}
         classes={{
-          paper: classes.drawerPaper,
+          paper: clsx({
+            [classes.drawerOpen]: open,
+            [classes.drawerClose]: !open,
+          }),
         }}
       >
-        <Toolbar />
-        <div className={classes.drawerContainer}>
-          <List>
-            <ListItem button>
-              <HomeRoundedIcon className={classes.whiteIcon} />
-            </ListItem>
-            <ListItem button>
-              <SettingsRoundedIcon className={classes.whiteIcon} />
-            </ListItem>
-            <ListItem button>
-              <PersonRoundedIcon className={classes.whiteIcon} />
-            </ListItem>
-            <ListItem button>
-              <ImageOutlinedIcon className={classes.whiteIcon} />
-            </ListItem>
-            <ListItem button>
-              <AccountCircleOutlinedIcon className={classes.whiteIcon} />
-            </ListItem>
-          </List>
-        </div>
+        <List className={classes.textWhite}>
+          <ListItem button>
+            <ListItemIcon>
+              <HomeRoundedIcon className={classes.drawerIcon} />
+            </ListItemIcon>
+            <ListItemText primary={"DASHBOARD"} />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <SettingsRoundedIcon className={classes.drawerIcon} />
+            </ListItemIcon>
+            <ListItemText primary={"CONFIGURATION"} />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <PersonRoundedIcon className={classes.drawerIcon} />
+            </ListItemIcon>
+            <ListItemText primary={"USER"} />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <ImageOutlinedIcon className={classes.drawerIcon} />
+            </ListItemIcon>
+            <ListItemText primary={"SALES"} />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <AccountCircleOutlinedIcon className={classes.drawerIcon} />
+            </ListItemIcon>
+            <ListItemText primary={"CUSTOMER"} />
+          </ListItem>
+        </List>
+        <ListItem style={{ marginTop: "auto" }} onClick={toggleDrawer} button>
+          <ListItemIcon>
+            {open ? (
+              <ChevronLeftIcon className={classes.toggleIcon} />
+            ) : (
+              <ChevronRightIcon className={classes.toggleIcon} />
+            )}
+          </ListItemIcon>
+        </ListItem>
       </Drawer>
       <main className={classes.content}>{children}</main>
     </div>
