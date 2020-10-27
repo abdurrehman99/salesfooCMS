@@ -9,24 +9,24 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Collapse from "@material-ui/core/Collapse";
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
-import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
-import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
-import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import Avatar from "@material-ui/core/Avatar";
 import salesfooLogo from "../../assets/salesfoo.png";
+
+import AnalyticsIcon from "../../assets/Analytics.svg";
+import GroupIcon from "../../assets/Group.svg";
+import HomeIcon from "../../assets/Home.svg";
+import SettingsIcon from "../../assets/Settings.svg";
+import UserIcon from "../../assets/User.svg";
 
 const drawerWidth = 280;
 
@@ -47,6 +47,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(10),
     paddingTop: 2,
     paddingBottom: 2,
+    // borderLeftWidth: 1,
+    // borderLeftColor: "red",
   },
   drawer: {
     width: drawerWidth,
@@ -54,8 +56,8 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
   },
   submenu: {
-    borderLeftWidth: 1,
-    borderLeftColor: "red",
+    // borderLeftWidth: 1,
+    // borderLeftColor: "red",
   },
   drawerOpen: {
     width: drawerWidth,
@@ -191,7 +193,12 @@ const Index = ({ children }) => {
         <List className={classes.textWhite}>
           <ListItem className={classes.listItem} button>
             <ListItemIcon>
-              <HomeRoundedIcon className={classes.drawerIcon} />
+              <img
+                src={HomeIcon}
+                alt=""
+                className={classes.drawerIcon}
+                width={22}
+              />
             </ListItemIcon>
             <ListItemText primary={"DASHBOARD"} />
           </ListItem>
@@ -202,7 +209,12 @@ const Index = ({ children }) => {
             button
           >
             <ListItemIcon>
-              <SettingsRoundedIcon className={classes.drawerIcon} />
+              <img
+                src={SettingsIcon}
+                alt=""
+                className={classes.drawerIcon}
+                width={22}
+              />
             </ListItemIcon>
             <ListItemText primary={"CONFIGURATION"} />
           </ListItem>
@@ -226,7 +238,12 @@ const Index = ({ children }) => {
             button
           >
             <ListItemIcon>
-              <PersonRoundedIcon className={classes.drawerIcon} />
+              <img
+                src={UserIcon}
+                alt=""
+                className={classes.drawerIcon}
+                width={22}
+              />
             </ListItemIcon>
             <ListItemText primary={"USER"} />
           </ListItem>
@@ -244,7 +261,12 @@ const Index = ({ children }) => {
             button
           >
             <ListItemIcon>
-              <ImageOutlinedIcon className={classes.drawerIcon} />
+              <img
+                src={AnalyticsIcon}
+                alt=""
+                className={classes.drawerIcon}
+                width={22}
+              />
             </ListItemIcon>
             <ListItemText primary={"SALES"} />
           </ListItem>
@@ -271,7 +293,12 @@ const Index = ({ children }) => {
             button
           >
             <ListItemIcon>
-              <AccountCircleOutlinedIcon className={classes.drawerIcon} />
+              <img
+                src={GroupIcon}
+                alt=""
+                className={classes.drawerIcon}
+                width={22}
+              />
             </ListItemIcon>
             <ListItemText primary={"CUSTOMER"} />
           </ListItem>
