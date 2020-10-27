@@ -12,7 +12,7 @@ const theme = createMuiTheme({
     secondary: { main: "#7a7a7a" },
   },
   typography: {
-    fontFamily: "Montserrat",
+    fontFamily: "Roboto",
     color: "black",
     fontSize: 13,
   },
