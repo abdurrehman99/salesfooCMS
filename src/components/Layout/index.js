@@ -104,6 +104,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 8,
     color: "white",
     marginTop: 10,
+    marginRight: 0,
     marginBottom: 10,
   },
   textWhite: {
@@ -120,6 +121,7 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     cursor: "pointer",
   },
+  listItemIcon: {},
   listItem: {
     paddingTop: 0,
     paddingBottom: 0,
@@ -207,7 +209,7 @@ const Index = ({ children }) => {
       >
         <List className={classes.textWhite}>
           <ListItem className={classes.listItem} button>
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItemIcon}>
               <img
                 src={HomeIcon}
                 alt=""
@@ -223,7 +225,7 @@ const Index = ({ children }) => {
             onClick={handleConfigurationClick}
             button
           >
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItemIcon}>
               <img
                 src={SettingsIcon}
                 alt=""
@@ -252,7 +254,7 @@ const Index = ({ children }) => {
             onClick={handleUserClick}
             button
           >
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItemIcon}>
               <img
                 src={UserIcon}
                 alt=""
@@ -275,7 +277,7 @@ const Index = ({ children }) => {
             onClick={handleSalesClick}
             button
           >
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItemIcon}>
               <img
                 src={AnalyticsIcon}
                 alt=""
@@ -307,7 +309,7 @@ const Index = ({ children }) => {
             onClick={handleCustomerClick}
             button
           >
-            <ListItemIcon>
+            <ListItemIcon className={classes.listItemIcon}>
               <img
                 src={GroupIcon}
                 alt=""
