@@ -20,13 +20,18 @@ import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import Avatar from "@material-ui/core/Avatar";
-import salesfooLogo from "../../assets/salesfoo.png";
+import salesfooLogo from "../../assets/icons/salesfoo.png";
 
-import AnalyticsIcon from "../../assets/Analytics.svg";
-import GroupIcon from "../../assets/Group.svg";
-import HomeIcon from "../../assets/Home.svg";
-import SettingsIcon from "../../assets/Settings.svg";
-import UserIcon from "../../assets/User.svg";
+import AnalyticsIcon from "../../assets/icons/Analytics.svg";
+import GroupIcon from "../../assets/icons/Group.svg";
+import HomeIcon from "../../assets/icons/Home.svg";
+import SettingsIcon from "../../assets/icons/Settings.svg";
+import UserIcon from "../../assets/icons/User.svg";
+import BellIcon from "../../assets/icons/Bell.svg";
+import FilterIcon from "../../assets/icons/Filter.svg";
+import MenuIcon from "../../assets/icons/Menu.svg";
+import SearchIcon from "../../assets/icons/Search.svg";
+import IconButton from "@material-ui/core/IconButton";
 
 const drawerWidth = 280;
 
@@ -93,10 +98,10 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     marginTop: 15,
     marginBottom: 15,
-    marginLeft: 5,
+    marginLeft: 8,
   },
   toggleIcon: {
-    marginLeft: 5,
+    marginLeft: 8,
     color: "white",
     marginTop: 10,
     marginBottom: 10,
@@ -109,13 +114,11 @@ const useStyles = makeStyles((theme) => ({
   blackIcon: {
     color: "black",
     cursor: "pointer",
-    marginRight: 15,
+    // marginRight: 15,
   },
   menuIcon: {
     color: "black",
     cursor: "pointer",
-    marginRight: 20,
-    marginLeft: 30,
   },
   listItem: {
     paddingTop: 0,
@@ -123,6 +126,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     cursor: "pointer",
+    marginLeft: 10,
   },
 }));
 
@@ -169,11 +173,22 @@ const Index = ({ children }) => {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <img src={salesfooLogo} alt="" className={classes.navLogo} />
-          <PersonRoundedIcon className={classes.blackIcon} />
-          <SearchOutlinedIcon className={classes.blackIcon} />
-          <MenuOutlinedIcon className={classes.blackIcon} />
-          <NotificationsOutlinedIcon className={classes.blackIcon} />
-          <MoreVertOutlinedIcon className={classes.menuIcon} />
+
+          <IconButton color="primary" component="span">
+            <img src={FilterIcon} className={classes.blackIcon} width={18} />
+          </IconButton>
+          <IconButton color="primary" component="span">
+            <SearchOutlinedIcon className={classes.blackIcon} />
+          </IconButton>
+          <IconButton color="primary" component="span">
+            <img src={MenuIcon} className={classes.blackIcon} width={18} />
+          </IconButton>
+          <IconButton color="primary" component="span">
+            <NotificationsOutlinedIcon className={classes.blackIcon} />
+          </IconButton>
+          <IconButton color="primary" component="span">
+            <MoreVertOutlinedIcon className={classes.menuIcon} />
+          </IconButton>
           <Avatar alt="Sales" src="" className={classes.avatar} />
         </Toolbar>
       </AppBar>
