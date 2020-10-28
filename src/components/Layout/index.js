@@ -33,7 +33,7 @@ import MenuIcon from "../../assets/icons/Menu.svg";
 import SearchIcon from "../../assets/icons/Search.svg";
 import IconButton from "@material-ui/core/IconButton";
 
-const drawerWidth = 280;
+const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,18 +52,14 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(10),
     paddingTop: 2,
     paddingBottom: 2,
-    // borderLeftWidth: 1,
-    // borderLeftColor: "red",
+    paddingLeft: 30,
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: "nowrap",
   },
-  submenu: {
-    // borderLeftWidth: 1,
-    // borderLeftColor: "red",
-  },
+  submenu: {},
   drawerOpen: {
     width: drawerWidth,
     background: theme.palette.primary.main,
@@ -129,6 +125,10 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     cursor: "pointer",
     marginLeft: 10,
+  },
+  lineDiv: {
+    borderLeft: "1px solid white",
+    marginLeft: 50,
   },
 }));
 
@@ -235,7 +235,12 @@ const Index = ({ children }) => {
             </ListItemIcon>
             <ListItemText primary={"CONFIGURATION"} />
           </ListItem>
-          <Collapse in={configuration} timeout="auto" unmountOnExit>
+          <Collapse
+            className={classes.lineDiv}
+            in={configuration}
+            timeout="auto"
+            unmountOnExit
+          >
             <List className={classes.submenu} component="div" disablePadding>
               <ListItem button className={classes.nested}>
                 <ListItemText primary="Template" />
@@ -264,7 +269,12 @@ const Index = ({ children }) => {
             </ListItemIcon>
             <ListItemText primary={"USER"} />
           </ListItem>
-          <Collapse in={user} timeout="auto" unmountOnExit>
+          <Collapse
+            className={classes.lineDiv}
+            in={user}
+            timeout="auto"
+            unmountOnExit
+          >
             <List className={classes.submenu} component="div" disablePadding>
               <ListItem button className={classes.nested}>
                 <ListItemText primary="Access Management" />
@@ -287,7 +297,12 @@ const Index = ({ children }) => {
             </ListItemIcon>
             <ListItemText primary={"SALES"} />
           </ListItem>
-          <Collapse in={sales} timeout="auto" unmountOnExit>
+          <Collapse
+            className={classes.lineDiv}
+            in={sales}
+            timeout="auto"
+            unmountOnExit
+          >
             <List className={classes.submenu} component="div" disablePadding>
               <ListItem button className={classes.nested}>
                 <ListItemText primary="Path" />
@@ -319,7 +334,12 @@ const Index = ({ children }) => {
             </ListItemIcon>
             <ListItemText primary={"CUSTOMER"} />
           </ListItem>
-          <Collapse in={customer} timeout="auto" unmountOnExit>
+          <Collapse
+            className={classes.lineDiv}
+            in={customer}
+            timeout="auto"
+            unmountOnExit
+          >
             <List className={classes.submenu} component="div" disablePadding>
               <ListItem button className={classes.nested}>
                 <ListItemText primary="Account" />
