@@ -129,6 +129,8 @@ const useStyles = makeStyles((theme) => ({
   lineDiv: {
     borderLeft: "1px solid white",
     marginLeft: 50,
+    marginTop: 10,
+    marginBottom: 10,
   },
 }));
 
