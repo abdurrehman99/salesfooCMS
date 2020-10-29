@@ -17,6 +17,9 @@ const theme = createMuiTheme({
     color: "black",
     fontSize: 14,
   },
+  shape: {
+    borderRadius: 25,
+  },
 });
 
 ReactDOM.render(
