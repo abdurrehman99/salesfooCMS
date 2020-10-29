@@ -7,6 +7,7 @@ import store from "./redux/store";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
+  spacing: 0,
   palette: {
     primary: { main: "#082E52" },
     secondary: { main: "#7a7a7a" },

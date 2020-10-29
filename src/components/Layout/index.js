@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import Collapse from "@material-ui/core/Collapse";
+import {
+  MenuItem,
+  Drawer,
+  AppBar,
+  Toolbar,
+  Typography,
+  Divider,
+  CssBaseline,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Avatar,
+  List,
+  Collapse,
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
-import Avatar from "@material-ui/core/Avatar";
 import salesfooLogo from "../../assets/icons/salesfoo.png";
 
 import AnalyticsIcon from "../../assets/icons/Analytics.svg";
@@ -83,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     marginTop: 100,
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
   },
   navLogo: {
     width: 218,
@@ -127,7 +131,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 10,
   },
   lineDiv: {
-    borderLeft: "1px solid white",
+    borderLeft: "3px solid white",
     marginLeft: 50,
     marginTop: 10,
     marginBottom: 10,
@@ -176,8 +180,9 @@ const Index = ({ children }) => {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
-          <img src={salesfooLogo} alt="" className={classes.navLogo} />
-
+          <MenuItem style={{ marginRight: "auto" }} component={Link} to={"/"}>
+            <img src={salesfooLogo} alt="" className={classes.navLogo} />
+          </MenuItem>
           <IconButton color="primary" component="span">
             <img src={FilterIcon} className={classes.blackIcon} width={18} />
           </IconButton>
@@ -343,9 +348,15 @@ const Index = ({ children }) => {
             unmountOnExit
           >
             <List className={classes.submenu} component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Account" />
-              </ListItem>
+              <MenuItem
+                component={Link}
+                to={"/account"}
+                button
+                className={classes.nested}
+              >
+                <ListItemText primary="Account"></ListItemText>
+              </MenuItem>
+
               <ListItem button className={classes.nested}>
                 <ListItemText primary="Customer" />
               </ListItem>

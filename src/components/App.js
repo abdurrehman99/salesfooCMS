@@ -3,18 +3,19 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { FullpageLoader } from "./CommonComponents";
 import Layout from "../components/Layout";
+import Account from "../components/Account";
 
-// const Home = lazy(() => import("./Home"));
+// const Account = lazy(() => import("../components/Account"));
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<FullpageLoader />}>
+      <Suspense>
+        {/* <Suspense fallback={<FullpageLoader />}> */}
         <Switch>
           <Layout>
-            <p>React-Redux Boiler Plate</p>
+            <Route exact path="/account" component={() => <Account />} />
           </Layout>
-          {/* <Route exact path="/" render={{}} /> */}
         </Switch>
       </Suspense>
     </BrowserRouter>
