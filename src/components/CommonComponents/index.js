@@ -1,2 +1,3 @@
 import FullpageLoader from "./FullpageLoader";
-export { FullpageLoader };
+import Circle from "./Circle";
+export { FullpageLoader, Circle };
