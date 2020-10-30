@@ -468,8 +468,8 @@ const Index = () => {
                 // onChangePage={handleChangePage}
                 // onChangeRowsPerPage={handleChangeRowsPerPage}
                 // ActionsComponent={TablePaginationActions}
-              />
-            </TableRow> */}
+              />*/}
+            </TableRow>
           </TableFooter>
         </Table>
       </div>
