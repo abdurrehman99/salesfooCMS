@@ -1,7 +1,7 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { FullpageLoader } from "./CommonComponents";
+// import { FullpageLoader } from "./CommonComponents";
 import Layout from "../components/Layout";
 import Account from "../components/Account";
 import Home from "../components/Home";

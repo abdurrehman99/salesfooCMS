@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
   Typography,
@@ -7,6 +7,7 @@ import {
   TextField,
   InputAdornment,
 } from "@material-ui/core";
+import { DataGrid } from "@material-ui/data-grid";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
 import Add from "@material-ui/icons/Add";
@@ -25,6 +26,14 @@ const useStyles = makeStyles((theme) => ({
     width: "6rem",
     fontSize: "13px",
   },
+  table: {
+    border: 0,
+  },
+  tableContianer: {
+    paddingLeft: theme.spacing(2),
+    paddingTop: 20,
+    width: "100%",
+  },
   searchBar: {
     width: "13.6rem",
   },
@@ -35,6 +44,135 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const columns = [
+  // { field: "SELECT", headerName: "SELECT", width: 100 },
+  { field: "ACCOUNT", headerName: "ACCOUNT", width: 200 },
+  {
+    field: "COMPANY SIZE",
+    headerName: "COMPANY SIZE",
+    // type: "number",
+    width: 180,
+  },
+  {
+    field: "URL",
+    headerName: "URL",
+    width: 240,
+  },
+  {
+    field: "STATUS",
+    headerName: "STATUS",
+    width: 200,
+    // valueGetter: (params) =>
+    //   `${params.getValue("firstName") || ""} ${
+    //     params.getValue("lastName") || ""
+    //   }`,
+  },
+  {
+    field: "CONTACT SIZE",
+    headerName: "CONTACT SIZE",
+    width: 170,
+  },
+];
+
+const rows = [
+  {
+    id: 1,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-18",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 2,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 3,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 4,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 5,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 6,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 7,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 8,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 9,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 10,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 11,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+  {
+    id: 12,
+    ACCOUNT: "IBM",
+    "COMPANY SIZE": "1-10",
+    URL: "https://www.google.com/",
+    STATUS: "Active",
+    "CONTACT SIZE": "8",
+  },
+];
+
 const Index = () => {
   const classes = useStyles();
   return (
@@ -42,7 +180,7 @@ const Index = () => {
       <Typography className={classes.bodyPadding} variant="h6">
         ACCOUNT
       </Typography>
-      <Typography className={classes.bodyPadding} variant="p">
+      <Typography className={classes.bodyPadding} variant="body2">
         Account represents and induvial customer account, organization or
         partner involved with business
       </Typography>
@@ -88,6 +226,7 @@ const Index = () => {
         <TextField
           className={classes.searchBar}
           size="small"
+          // margin="dense"
           variant="outlined"
           placeholder="Search"
           InputProps={{
@@ -106,6 +245,20 @@ const Index = () => {
         >
           Filters
         </Button>
+      </div>
+      <div className={classes.tableContianer}>
+        <DataGrid
+          className={classes.table}
+          rows={rows}
+          columns={columns}
+          checkboxSelection
+          pageSize={8}
+          // headerHeight={45}
+          rowHeight={60}
+          autoHeight
+          hideFooterRowCount
+          // checkboxSelection
+        />
       </div>
     </div>
   );

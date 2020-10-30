@@ -6,8 +6,8 @@ import {
   Drawer,
   AppBar,
   Toolbar,
-  Typography,
-  Divider,
+  // Typography,
+  // Divider,
   CssBaseline,
   ListItem,
   ListItemIcon,
@@ -19,9 +19,9 @@ import {
 import { Link } from "react-router-dom";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
+// import PersonRoundedIcon from "@material-ui/icons/PersonRounded";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
-import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
+// import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import MoreVertOutlinedIcon from "@material-ui/icons/MoreVertOutlined";
 import salesfooLogo from "../../assets/icons/salesfoo.png";
@@ -31,10 +31,10 @@ import GroupIcon from "../../assets/icons/Group.svg";
 import HomeIcon from "../../assets/icons/Home.svg";
 import SettingsIcon from "../../assets/icons/Settings.svg";
 import UserIcon from "../../assets/icons/User.svg";
-import BellIcon from "../../assets/icons/Bell.svg";
+// import BellIcon from "../../assets/icons/Bell.svg";
 import FilterIcon from "../../assets/icons/Filter.svg";
 import MenuIcon from "../../assets/icons/Menu.svg";
-import SearchIcon from "../../assets/icons/Search.svg";
+// import SearchIcon from "../../assets/icons/Search.svg";
 import IconButton from "@material-ui/core/IconButton";
 
 const drawerWidth = 300;
@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     height: 80,
   },
   nested: {
-    paddingLeft: theme.spacing(10),
     paddingTop: 2,
     paddingBottom: 2,
     paddingLeft: 30,
@@ -184,13 +183,23 @@ const Index = ({ children }) => {
             <img src={salesfooLogo} alt="" className={classes.navLogo} />
           </MenuItem>
           <IconButton color="primary" component="span">
-            <img src={FilterIcon} className={classes.blackIcon} width={18} />
+            <img
+              src={FilterIcon}
+              alt=""
+              className={classes.blackIcon}
+              width={18}
+            />
           </IconButton>
           <IconButton color="primary" component="span">
             <SearchOutlinedIcon className={classes.blackIcon} />
           </IconButton>
           <IconButton color="primary" component="span">
-            <img src={MenuIcon} className={classes.blackIcon} width={18} />
+            <img
+              src={MenuIcon}
+              alt=""
+              className={classes.blackIcon}
+              width={18}
+            />
           </IconButton>
           <IconButton color="primary" component="span">
             <NotificationsOutlinedIcon className={classes.blackIcon} />
