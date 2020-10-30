@@ -455,7 +455,7 @@ const Index = () => {
           </TableBody>
           <TableFooter>
             <TableRow>
-              <TablePagination
+              {/* <TablePagination
                 // rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
                 colSpan={12}
                 count={rows.length}
@@ -469,7 +469,7 @@ const Index = () => {
                 // onChangeRowsPerPage={handleChangeRowsPerPage}
                 // ActionsComponent={TablePaginationActions}
               />
-            </TableRow>
+            </TableRow> */}
           </TableFooter>
         </Table>
       </div>
