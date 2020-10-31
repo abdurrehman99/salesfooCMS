@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
-import { LinearProgress, Box,Button,
-  ButtonGroup, } from "@material-ui/core";
+import { Box, CircularProgress } from "@material-ui/core";
 
-import { Save, Delete } from '@material-ui/icons';
+import { Save, Delete } from "@material-ui/icons";
 
 export default function FullpageLoader() {
   return (
@@ -13,35 +12,18 @@ export default function FullpageLoader() {
         left="0"
         height="100vh"
         width="100vw"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", zIndex: "99" }}
+        style={{ backgroundColor: "black", zIndex: 99, opacity: 0.2 }}
       ></Box>
-      <Box
-        position="fixed"
-        top="50%"
-        left="50%"
-        style={{ transform: "translate(-50%, -50%)", zIndex: "100" }}
+      <div
+        style={{
+          width: "100%",
+          textAlign: "center",
+          position: "fixed",
+          height: "100vh ",
+        }}
       >
-        <LinearProgress color="secondary" />
-      </Box>
-      <Box height={300}></Box>
-      <ButtonGroup>
-        <Button
-          variant='contained'
-          color='primary'
-          size='large'
-          startIcon={<Save />}
-        >
-          Save
-        </Button>
-        <Button
-          variant='contained'
-          color='secondary'
-          size='large'
-          startIcon={<Delete />}
-        >
-          Discard
-        </Button>
-      </ButtonGroup>
+        <CircularProgress style={{ marginTop: "40vh" }} color="primary" />
+      </div>
     </Fragment>
   );
 }

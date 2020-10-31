@@ -4,15 +4,17 @@ import { makeStyles, withStyles, useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    margin: "auto",
     "&:hover": {
       cursor: "pointer",
     },
   },
 }));
-const Circle = ({ size, active }) => {
+const Circle = ({ size, active, onClick }) => {
   const classes = useStyles();
   return (
     <Skeleton
+      onClick={onClick}
       className={classes.root}
       animation={false}
       style={{

@@ -17,6 +17,7 @@ import {
   IconButton,
 } from "@material-ui/core";
 import Circle from "../CommonComponents/Circle";
+// import FullpageLoader from "../CommonComponents/FullpageLoader";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
 import Add from "@material-ui/icons/Add";
@@ -24,7 +25,12 @@ import RefreshIcon from "@material-ui/icons/Refresh";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import Filter from "../../assets/icons/Filter.svg";
-import { ExpandLess, ExpandMore } from "@material-ui/icons";
+import {
+  ExpandLess,
+  ExpandMore,
+  ChevronLeft,
+  ChevronRight,
+} from "@material-ui/icons";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -33,7 +39,7 @@ const StyledTableCell = withStyles((theme) => ({
     height: 45,
     paddingTop: 0,
     paddingBottom: 0,
-    paddingLeft: theme.spacing(5),
+    paddingLeft: theme.spacing(6),
   },
   body: {
     fontSize: 14,
@@ -52,17 +58,6 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const rows = [
-  {
-    id: 1,
-    account: { name: "IBM", description: "Information Technology", image: "" },
-    companySize: "1-18",
-    URL: "https://www.google.com/",
-    status: "Active",
-    contactSize: 9,
-  },
-];
-
 const useStyles = makeStyles((theme) => ({
   bodyPadding: {
     paddingLeft: theme.spacing(5),
@@ -78,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tableContianer: {
     paddingTop: 20,
-    maxWidth: "100%",
+    maxWidth: "100vw",
   },
   iconButton: {
     paddingTop: 0,
@@ -95,140 +90,81 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
     verticalAlign: "center",
   },
+  inlineFlex: {
+    display: "inline-flex",
+    verticalAlign: "center",
+    width: "100%",
+  },
+  footerRow: {
+    width: "100%",
+    margin: "auto",
+    textAlign: "center",
+    marginTop: 30,
+    marginBottom: 30,
+  },
+  footerButton: {
+    // padding: 0,
+    marginLeft: 8,
+    borderRadius: 5,
+    // width: 30,
+  },
 }));
 
-const columns = [
-  // { field: "SELECT", headerName: "SELECT", width: 100 },
-  { field: "ACCOUNT", headerName: "ACCOUNT", width: 200 },
+const rows = [
   {
-    field: "COMPANY SIZE",
-    headerName: "COMPANY SIZE",
-    // type: "number",
-    width: 180,
+    id: 1,
+    account: { name: "IBM", description: "Information Technology", image: "" },
+    companySize: "1-18",
+    URL: "https://www.google.com/",
+    status: "Active",
+    contactSize: 9,
   },
   {
-    field: "URL",
-    headerName: "URL",
-    width: 240,
+    id: 1,
+    account: { name: "IBM", description: "Information Technology", image: "" },
+    companySize: "1-18",
+    URL: "https://www.google.com/",
+    status: "Active",
+    contactSize: 9,
   },
   {
-    field: "STATUS",
-    headerName: "STATUS",
-    width: 200,
-    // valueGetter: (params) =>
-    //   `${params.getValue("firstName") || ""} ${
-    //     params.getValue("lastName") || ""
-    //   }`,
+    id: 1,
+    account: { name: "IBM", description: "Information Technology", image: "" },
+    companySize: "1-18",
+    URL: "https://www.google.com/",
+    status: "Active",
+    contactSize: 9,
   },
   {
-    field: "CONTACT SIZE",
-    headerName: "CONTACT SIZE",
-    width: 170,
+    id: 1,
+    account: { name: "IBM", description: "Information Technology", image: "" },
+    companySize: "1-18",
+    URL: "https://www.google.com/",
+    status: "Active",
+    contactSize: 9,
+  },
+  {
+    id: 1,
+    account: { name: "IBM", description: "Information Technology", image: "" },
+    companySize: "1-18",
+    URL: "https://www.google.com/",
+    status: "Active",
+    contactSize: 9,
+  },
+  {
+    id: 1,
+    account: { name: "IBM", description: "Information Technology", image: "" },
+    companySize: "1-18",
+    URL: "https://www.google.com/",
+    status: "Active",
+    contactSize: 9,
   },
 ];
-
-// const rows = [
-//   {
-//     id: 1,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-18",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 2,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 3,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 4,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 5,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 6,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 7,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 8,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 9,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 10,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 11,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-//   {
-//     id: 12,
-//     ACCOUNT: "IBM",
-//     "COMPANY SIZE": "1-10",
-//     URL: "https://www.google.com/",
-//     STATUS: "Active",
-//     "CONTACT SIZE": "8",
-//   },
-// ];
 
 const Index = () => {
   const classes = useStyles();
   const [toggle, setToggle] = useState([false, false, false, false, false]);
+  // const [loading, setloading] = useState(true);
 
   return (
     <div>
@@ -305,168 +241,145 @@ const Index = () => {
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              <StyledTableCell>
-                SELECT
-                <Circle active={true} />
+              <StyledTableCell align="center">
+                <div className={classes.inlineFlex}>
+                  <p>SELECT</p>
+                  <Circle active={true} />
+                </div>
               </StyledTableCell>
-              <StyledTableCell>
-                <div
-                  style={{
-                    verticalAlign: "center",
-                    display: "flex",
-                  }}
-                >
+              <StyledTableCell align="center">
+                <div className={classes.inlineFlex}>
                   <p>ACCOUNT</p>
                   <IconButton
                     onClick={() =>
-                      setToggle((prevState) => [
-                        !prevState[0],
-                        false,
-                        false,
-                        false,
-                        false,
-                      ])
+                      setToggle([!toggle[0], false, false, false, false])
                     }
                   >
                     {toggle[0] ? <ExpandLess /> : <ExpandMore />}
                   </IconButton>
                 </div>
               </StyledTableCell>
-              <StyledTableCell>
-                <div
-                  style={{
-                    verticalAlign: "center",
-                    display: "flex",
-                  }}
-                >
+              <StyledTableCell align="center">
+                <div className={classes.inlineFlex}>
                   <p>COMPANY SIZE</p>
                   <IconButton
                     onClick={() =>
-                      setToggle((prevState) => [
-                        false,
-                        !prevState[1],
-                        false,
-                        false,
-                        false,
-                      ])
+                      setToggle([false, !toggle[1], false, false, false])
                     }
                   >
-                    {toggle[1] ? (
-                      <ExpandLess onPress={() => setToggle([])} />
-                    ) : (
-                      <ExpandMore onPress={() => setToggle([])} />
-                    )}
+                    {toggle[1] ? <ExpandLess /> : <ExpandMore />}
                   </IconButton>
                 </div>
               </StyledTableCell>
-              <StyledTableCell>
-                <div
-                  style={{
-                    verticalAlign: "center",
-                    display: "flex",
-                  }}
-                >
+              <StyledTableCell align="center">
+                <div className={classes.inlineFlex}>
                   <p>URL</p>
                   <IconButton
                     onClick={() =>
-                      setToggle((prevState) => [
-                        false,
-                        false,
-                        !prevState[2],
-                        false,
-                        false,
-                      ])
+                      setToggle([false, false, !toggle[2], false, false])
                     }
                   >
-                    {toggle[2] ? (
-                      <ExpandLess onPress={() => setToggle([])} />
-                    ) : (
-                      <ExpandMore onPress={() => setToggle([])} />
-                    )}
+                    {toggle[2] ? <ExpandLess /> : <ExpandMore />}
                   </IconButton>
                 </div>
               </StyledTableCell>
-              <StyledTableCell>
-                <div
-                  style={{
-                    verticalAlign: "center",
-                    display: "flex",
-                  }}
-                >
+              <StyledTableCell align="center">
+                <div className={classes.inlineFlex}>
                   <p>STATUS</p>
                   <IconButton
                     onClick={() =>
-                      setToggle((prevState) => [
-                        false,
-                        false,
-                        false,
-                        !prevState[3],
-                        false,
-                      ])
+                      setToggle([false, false, false, !toggle[3], false])
                     }
                   >
-                    {toggle[3] ? (
-                      <ExpandLess onPress={() => setToggle([])} />
-                    ) : (
-                      <ExpandMore onPress={() => setToggle([])} />
-                    )}
+                    {toggle[3] ? <ExpandLess /> : <ExpandMore />}
                   </IconButton>
                 </div>
               </StyledTableCell>
-              <StyledTableCell>
-                <div
-                  style={{
-                    verticalAlign: "center",
-                    display: "flex",
-                  }}
-                >
+              <StyledTableCell align="center">
+                <div className={classes.inlineFlex}>
                   <p>CONTACT SIZE</p>
                   <IconButton
                     onClick={() =>
-                      setToggle((prevState) => [
-                        false,
-                        false,
-                        false,
-                        false,
-                        !prevState[4],
-                      ])
+                      setToggle([false, false, false, false, !toggle[4]])
                     }
                   >
-                    {toggle[4] ? (
-                      <ExpandLess onPress={() => setToggle([])} />
-                    ) : (
-                      <ExpandMore onPress={() => setToggle([])} />
-                    )}
+                    {toggle[4] ? <ExpandLess /> : <ExpandMore />}
                   </IconButton>
                 </div>
               </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.id}>
-                <StyledTableCell>
-                  <Circle active={false} />
+            {rows.map((row, index) => (
+              <StyledTableRow key={index}>
+                <StyledTableCell align="center">
+                  <Circle
+                    onClick={() => console.log("row clicked")}
+                    active={false}
+                  />
                 </StyledTableCell>
-                <StyledTableCell>
-                  <div style={{ display: "inline-flex" }}>
+                <StyledTableCell align="left">
+                  <div className={classes.inlineFlex}>
                     <Avatar alt="Salesfoo" src="" className={classes.avatar} />
                     {row.account.name}
                     <br />
                     {row.account.description}
                   </div>
                 </StyledTableCell>
-                <StyledTableCell>{row.companySize}</StyledTableCell>
-                <StyledTableCell>{row.URL}</StyledTableCell>
-                <StyledTableCell>{row.status}</StyledTableCell>
-                <StyledTableCell>{row.contactSize}</StyledTableCell>
+                <StyledTableCell align="center">
+                  {row.companySize}
+                </StyledTableCell>
+                <StyledTableCell align="center">{row.URL}</StyledTableCell>
+                <StyledTableCell align="center">{row.status}</StyledTableCell>
+                <StyledTableCell align="center">
+                  {row.contactSize}
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
-          <TableFooter>
-            <TableRow></TableRow>
-          </TableFooter>
         </Table>
+        <div className={classes.footerRow}>
+          <Button
+            size="small"
+            className={classes.footerButton}
+            variant="outlined"
+            color="primary"
+          >
+            <ChevronLeft />
+          </Button>
+          <Button
+            // size="small"
+            className={classes.footerButton}
+            variant="outlined"
+            color="primary"
+          >
+            1
+          </Button>
+          <Button
+            // size="small"
+            className={classes.footerButton}
+            variant="outlined"
+            color="primary"
+          >
+            2
+          </Button>
+          <Button
+            // size="small"
+            className={classes.footerButton}
+            variant="outlined"
+            color="primary"
+          >
+            3
+          </Button>
+          <Button
+            size="small"
+            className={classes.footerButton}
+            variant="outlined"
+            color="primary"
+          >
+            <ChevronRight />
+          </Button>
+        </div>
       </div>
     </div>
   );
