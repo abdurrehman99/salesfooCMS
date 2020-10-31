@@ -13,6 +13,7 @@ import {
   TableRow,
   TableFooter,
   TablePagination,
+  Avatar,
   IconButton,
 } from "@material-ui/core";
 import Circle from "../CommonComponents/Circle";
@@ -51,16 +52,15 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
+  {
+    id: 1,
+    account: { name: "IBM", description: "Information Technology", image: "" },
+    companySize: "1-18",
+    URL: "https://www.google.com/",
+    status: "Active",
+    contactSize: 9,
+  },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -86,6 +86,9 @@ const useStyles = makeStyles((theme) => ({
   },
   searchBar: {
     width: "13.6rem",
+  },
+  avatar: {
+    marginRight: 10,
   },
   searchRow: {
     marginLeft: theme.spacing(5),
@@ -441,35 +444,27 @@ const Index = () => {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <StyledTableRow key={row.name}>
+              <StyledTableRow key={row.id}>
                 <StyledTableCell>
                   <Circle active={false} />
                 </StyledTableCell>
-                <StyledTableCell>{row.name}</StyledTableCell>
-                <StyledTableCell>{row.calories}</StyledTableCell>
-                <StyledTableCell>{row.fat}</StyledTableCell>
-                <StyledTableCell>{row.carbs}</StyledTableCell>
-                <StyledTableCell>{row.protein}</StyledTableCell>
+                <StyledTableCell>
+                  <div style={{ display: "inline-flex" }}>
+                    <Avatar alt="Salesfoo" src="" className={classes.avatar} />
+                    {row.account.name}
+                    <br />
+                    {row.account.description}
+                  </div>
+                </StyledTableCell>
+                <StyledTableCell>{row.companySize}</StyledTableCell>
+                <StyledTableCell>{row.URL}</StyledTableCell>
+                <StyledTableCell>{row.status}</StyledTableCell>
+                <StyledTableCell>{row.contactSize}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
           <TableFooter>
-            <TableRow>
-              {/* <TablePagination
-                // rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-                colSpan={12}
-                count={rows.length}
-                rowsPerPage={2}
-                page={6}
-                // SelectProps={{
-                //   inputProps: { "aria-label": "rows per page" },
-                //   native: true,
-                // }}
-                // onChangePage={handleChangePage}
-                // onChangeRowsPerPage={handleChangeRowsPerPage}
-                // ActionsComponent={TablePaginationActions}
-              />*/}
-            </TableRow>
+            <TableRow></TableRow>
           </TableFooter>
         </Table>
       </div>
