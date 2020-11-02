@@ -14,7 +14,9 @@ import {
   TableFooter,
   TablePagination,
   Avatar,
+  Breadcrumbs,
   IconButton,
+  Link,
 } from "@material-ui/core";
 import Circle from "../CommonComponents/Circle";
 // import FullpageLoader from "../CommonComponents/FullpageLoader";
@@ -25,11 +27,13 @@ import RefreshIcon from "@material-ui/icons/Refresh";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import Filter from "../../assets/icons/Filter.svg";
+import navArrow from "../../assets/icons/navarrow.svg";
 import {
   ExpandLess,
   ExpandMore,
   ChevronLeft,
   ChevronRight,
+  NavigateNextIcon,
 } from "@material-ui/icons";
 
 const StyledTableCell = withStyles((theme) => ({
@@ -60,13 +64,15 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   bodyPadding: {
-    paddingLeft: theme.spacing(5),
     paddingBottom: theme.spacing(1),
   },
   actionButtons: {
     marginLeft: theme.spacing(5),
     width: "6rem",
     fontSize: "13px",
+  },
+  link: {
+    display: "flex",
   },
   table: {
     border: 0,
@@ -85,6 +91,19 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     marginRight: 10,
   },
+  breadcrumbs: {
+    paddingTop: 15,
+    paddingBottom: 10,
+  },
+  navLink: {
+    fontSize: 14,
+    fontWeight: "500",
+  },
+  navLinkActive: {
+    fontSize: 14,
+    fontWeight: "500",
+    color: "#0582ff",
+  },
   searchRow: {
     marginLeft: theme.spacing(5),
     marginTop: theme.spacing(3),
@@ -94,6 +113,13 @@ const useStyles = makeStyles((theme) => ({
     display: "inline-flex",
     verticalAlign: "center",
     width: "100%",
+  },
+  para: {
+    fontWeight: "lighter",
+    paddingBottom: 10,
+  },
+  topBox: {
+    marginLeft: theme.spacing(5),
   },
   footerRow: {
     width: "100%",
@@ -164,17 +190,29 @@ const rows = [
 const Index = () => {
   const classes = useStyles();
   const [toggle, setToggle] = useState([false, false, false, false, false]);
-  // const [loading, setloading] = useState(true);
 
   return (
     <div>
-      <Typography className={classes.bodyPadding} variant="h6">
-        ACCOUNT
-      </Typography>
-      <Typography className={classes.bodyPadding} variant="body2">
-        Account represents and induvial customer account, organization or
-        partner involved with business
-      </Typography>
+      <div className={classes.topBox}>
+        <Breadcrumbs
+          separator={<img src={navArrow} width={12} height={12} alt="" />}
+          className={classes.breadcrumbs}
+        >
+          <Typography className={classes.navLink} color="textPrimary">
+            Customer
+          </Typography>
+          <Typography className={classes.navLinkActive} color="textPrimary">
+            Account
+          </Typography>
+        </Breadcrumbs>
+        <Typography className={classes.bodyPadding} variant="h6">
+          ACCOUNT
+        </Typography>
+        <Typography className={classes.para} variant="p">
+          Account represents and induvial customer account, organization or
+          partner involved with business
+        </Typography>
+      </div>
       <hr />
       <div>
         <Button
