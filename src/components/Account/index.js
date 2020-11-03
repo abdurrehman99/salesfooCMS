@@ -16,7 +16,8 @@ import {
   Avatar,
   Breadcrumbs,
   IconButton,
-  Link,
+  ButtonGroup,
+  ButtonBase,
 } from "@material-ui/core";
 import Circle from "../CommonComponents/Circle";
 // import FullpageLoader from "../CommonComponents/FullpageLoader";
@@ -28,6 +29,8 @@ import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import Filter from "../../assets/icons/Filter.svg";
 import navArrow from "../../assets/icons/navarrow.svg";
+import leftArrow from "../../assets/icons/leftArrow.svg";
+import rightArrow from "../../assets/icons/rightArrow.svg";
 import {
   ExpandLess,
   ExpandMore,
@@ -132,10 +135,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 30,
   },
   footerButton: {
-    // padding: 0,
+    fontWeight: "bold",
+
+    border: "1px solid #E0E0E0",
     marginLeft: 8,
-    borderRadius: 5,
-    // width: 30,
+    borderRadius: 4,
+    width: 38,
+    height: 39,
   },
 }));
 
@@ -219,6 +225,7 @@ const Index = () => {
       <hr />
       <div className={classes.box}>
         <Button
+          autoCapitalize={false}
           className={classes.actionButtons}
           startIcon={<Add />}
           variant="outlined"
@@ -380,46 +387,47 @@ const Index = () => {
           </TableBody>
         </Table>
         <div className={classes.footerRow}>
-          <Button
+          <ButtonBase
             size="small"
             className={classes.footerButton}
             variant="outlined"
             color="primary"
           >
-            <ChevronLeft />
-          </Button>
-          <Button
+            <img src={leftArrow} width={15} height={15} alt="" />
+          </ButtonBase>
+          <ButtonBase
             // size="small"
             className={classes.footerButton}
             variant="outlined"
             color="primary"
           >
             1
-          </Button>
-          <Button
+          </ButtonBase>
+          <ButtonBase
             // size="small"
             className={classes.footerButton}
             variant="outlined"
             color="primary"
           >
             2
-          </Button>
-          <Button
+          </ButtonBase>
+          <ButtonBase
             // size="small"
             className={classes.footerButton}
             variant="outlined"
             color="primary"
           >
             3
-          </Button>
-          <Button
+          </ButtonBase>
+
+          <ButtonBase
             size="small"
             className={classes.footerButton}
             variant="outlined"
             color="primary"
           >
-            <ChevronRight />
-          </Button>
+            <img src={rightArrow} width={15} height={15} alt="" />
+          </ButtonBase>
         </div>
       </div>
     </div>
