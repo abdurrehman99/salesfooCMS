@@ -67,8 +67,9 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(1),
   },
   actionButtons: {
-    marginLeft: theme.spacing(5),
-    width: "6rem",
+    marginRight: 20,
+    width: 122,
+    height: 40.7,
     fontSize: "13px",
   },
   link: {
@@ -86,7 +87,8 @@ const useStyles = makeStyles((theme) => ({
     paddingButtom: 0,
   },
   searchBar: {
-    width: "13.6rem",
+    width: 255.4,
+    marginRight: 20,
   },
   avatar: {
     marginRight: 10,
@@ -105,8 +107,8 @@ const useStyles = makeStyles((theme) => ({
     color: "#0582ff",
   },
   searchRow: {
-    marginLeft: theme.spacing(5),
     marginTop: theme.spacing(3),
+    marginLeft: theme.spacing(5),
     verticalAlign: "center",
   },
   inlineFlex: {
@@ -116,10 +118,11 @@ const useStyles = makeStyles((theme) => ({
   },
   para: {
     fontWeight: "lighter",
-    paddingBottom: 10,
+    paddingBottom: 15,
   },
-  topBox: {
+  box: {
     marginLeft: theme.spacing(5),
+    marginTop: 20,
   },
   footerRow: {
     width: "100%",
@@ -193,7 +196,7 @@ const Index = () => {
 
   return (
     <div>
-      <div className={classes.topBox}>
+      <div className={classes.box}>
         <Breadcrumbs
           separator={<img src={navArrow} width={12} height={12} alt="" />}
           className={classes.breadcrumbs}
@@ -214,7 +217,7 @@ const Index = () => {
         </Typography>
       </div>
       <hr />
-      <div>
+      <div className={classes.box}>
         <Button
           className={classes.actionButtons}
           startIcon={<Add />}
