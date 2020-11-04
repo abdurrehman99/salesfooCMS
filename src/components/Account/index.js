@@ -74,6 +74,7 @@ const StyledTableRow = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   bodyPadding: {
     paddingBottom: theme.spacing(1),
+    fontWeight: "bold",
   },
   actionButtons: {
     marginRight: 20,
@@ -81,6 +82,7 @@ const useStyles = makeStyles((theme) => ({
     height: 40.7,
     fontSize: "13px",
     fontWeight: "bold",
+    textTransform: "none",
   },
   link: {
     display: "flex",
@@ -133,7 +135,7 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     marginLeft: 40.1,
-    marginTop: 20,
+    // marginTop: 20,
   },
   footerRow: {
     width: "100%",
@@ -230,10 +232,9 @@ const Index = () => {
           partner involved with business
         </Typography>
       </div>
-      <hr />
+      <hr style={{ orderColor: "#cbd0d8", marginBottom: 20 }} />
       <div className={classes.box}>
         <Button
-          autoCapitalize={false}
           className={classes.actionButtons}
           startIcon={<img src={PlusIcon} alt="" width={15} />}
           variant="outlined"
