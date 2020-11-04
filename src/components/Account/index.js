@@ -24,13 +24,19 @@ import Circle from "../CommonComponents/Circle";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
 import Add from "@material-ui/icons/Add";
-import RefreshIcon from "@material-ui/icons/Refresh";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import Filter from "../../assets/icons/Filter.svg";
 import navArrow from "../../assets/icons/navarrow.svg";
 import leftArrow from "../../assets/icons/leftArrow.svg";
 import rightArrow from "../../assets/icons/rightArrow.svg";
+
+import arrowDown from "../../assets/icons/arrowDown.svg";
+import arrowUp from "../../assets/icons/arrowUp.svg";
+import delteIcon from "../../assets/icons/delete.svg";
+import PlusIcon from "../../assets/icons/plus.svg";
+import RefreshIcon from "../../assets/icons/refresh.svg";
+
 import {
   ExpandLess,
   ExpandMore,
@@ -74,6 +80,7 @@ const useStyles = makeStyles((theme) => ({
     width: 122,
     height: 40.7,
     fontSize: "13px",
+    fontWeight: "bold",
   },
   link: {
     display: "flex",
@@ -83,6 +90,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tableContianer: {
     paddingTop: 20,
+    marginLeft: 24.5,
     maxWidth: "100vw",
   },
   iconButton: {
@@ -111,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
   },
   searchRow: {
     marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(5),
+    marginLeft: 40.1,
     verticalAlign: "center",
   },
   inlineFlex: {
@@ -124,7 +132,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 15,
   },
   box: {
-    marginLeft: theme.spacing(5),
+    marginLeft: 40.1,
     marginTop: 20,
   },
   footerRow: {
@@ -227,35 +235,35 @@ const Index = () => {
         <Button
           autoCapitalize={false}
           className={classes.actionButtons}
-          startIcon={<Add />}
+          startIcon={<img src={PlusIcon} alt="" width={15} />}
           variant="outlined"
         >
           New
         </Button>
         <Button
           className={classes.actionButtons}
-          startIcon={<RefreshIcon />}
+          startIcon={<img src={RefreshIcon} alt="" width={15} />}
           variant="outlined"
         >
           Refresh
         </Button>
         <Button
           className={classes.actionButtons}
-          startIcon={<DeleteIcon />}
+          startIcon={<img src={delteIcon} alt="" width={12} />}
           variant="outlined"
         >
           Delete
         </Button>
         <Button
           className={classes.actionButtons}
-          startIcon={<ArrowUpward />}
+          startIcon={<img src={arrowUp} alt="" width={8} />}
           variant="outlined"
         >
           Export
         </Button>
         <Button
           className={classes.actionButtons}
-          startIcon={<ArrowDownward />}
+          startIcon={<img src={arrowDown} alt="" width={8} />}
           variant="outlined"
         >
           Import
