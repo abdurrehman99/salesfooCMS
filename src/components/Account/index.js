@@ -36,6 +36,7 @@ import arrowUp from "../../assets/icons/arrowUp.svg";
 import delteIcon from "../../assets/icons/delete.svg";
 import PlusIcon from "../../assets/icons/plus.svg";
 import RefreshIcon from "../../assets/icons/refresh.svg";
+import Line from "../CommonComponents/Line";
 
 import {
   ExpandLess,
@@ -52,11 +53,11 @@ const StyledTableCell = withStyles((theme) => ({
     height: 45,
     paddingTop: 0,
     paddingBottom: 0,
-    paddingLeft: theme.spacing(6),
+    paddingLeft: 62,
   },
   body: {
     fontSize: 14,
-    paddingLeft: theme.spacing(6),
+    // paddingLeft: theme.spacing(6),
   },
 }))(TableCell);
 
@@ -81,6 +82,14 @@ const useStyles = makeStyles((theme) => ({
     width: 122,
     height: 40.7,
     fontSize: "13px",
+    fontWeight: "bold",
+    textTransform: "none",
+  },
+  filterButton: {
+    marginRight: 20,
+    width: 133.4,
+    height: 44.5,
+    fontSize: "16px",
     fontWeight: "bold",
     textTransform: "none",
   },
@@ -112,11 +121,11 @@ const useStyles = makeStyles((theme) => ({
   },
   navLink: {
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: "600",
   },
   navLinkActive: {
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: "600",
     color: "#0582ff",
   },
   searchRow: {
@@ -131,7 +140,7 @@ const useStyles = makeStyles((theme) => ({
   },
   para: {
     fontWeight: "lighter",
-    paddingBottom: 15,
+    paddingBottom: 0,
   },
   box: {
     marginLeft: 40.1,
@@ -232,7 +241,7 @@ const Index = () => {
           partner involved with business
         </Typography>
       </div>
-      <hr style={{ orderColor: "#cbd0d8", marginBottom: 20 }} />
+      <Line />
       <div className={classes.box}>
         <Button
           className={classes.actionButtons}
@@ -286,7 +295,7 @@ const Index = () => {
           }}
         />
         <Button
-          className={classes.actionButtons}
+          className={classes.filterButton}
           size="large"
           startIcon={<img src={Filter} alt="" width={15} />}
           variant="outlined"
