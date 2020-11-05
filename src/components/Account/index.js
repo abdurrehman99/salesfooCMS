@@ -74,7 +74,7 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   bodyPadding: {
-    paddingBottom: theme.spacing(1),
+    // paddingBottom: theme.spacing(1),
     fontWeight: "bold",
   },
   actionButtons: {
@@ -245,28 +245,28 @@ const Index = () => {
       <div className={classes.box}>
         <Button
           className={classes.actionButtons}
-          startIcon={<img src={PlusIcon} alt="" width={15} />}
+          startIcon={<img src={PlusIcon} alt="" width={14} height={14} />}
           variant="outlined"
         >
           New
         </Button>
         <Button
           className={classes.actionButtons}
-          startIcon={<img src={RefreshIcon} alt="" width={15} />}
+          startIcon={<img src={RefreshIcon} alt="" width={15} height={14} />}
           variant="outlined"
         >
           Refresh
         </Button>
         <Button
           className={classes.actionButtons}
-          startIcon={<img src={delteIcon} alt="" width={12} />}
+          startIcon={<img src={delteIcon} alt="" width={12} height={13} />}
           variant="outlined"
         >
           Delete
         </Button>
         <Button
           className={classes.actionButtons}
-          startIcon={<img src={arrowUp} alt="" width={8} />}
+          startIcon={<img src={arrowUp} alt="" width={9} height={17} />}
           variant="outlined"
         >
           Export
