@@ -18,6 +18,7 @@ import {
   IconButton,
   ButtonGroup,
   ButtonBase,
+  Container,
 } from "@material-ui/core";
 import Circle from "../CommonComponents/Circle";
 // import FullpageLoader from "../CommonComponents/FullpageLoader";
@@ -139,7 +140,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   para: {
-    fontWeight: "lighter",
+    fontWeight: "light",
     paddingBottom: 0,
   },
   box: {
@@ -220,7 +221,7 @@ const Index = () => {
   const [toggle, setToggle] = useState([false, false, false, false, false]);
 
   return (
-    <div>
+    <Container style={{ padding: 0, margin: 0 }} maxWidth="xl">
       <div className={classes.box}>
         <Breadcrumbs
           separator={<img src={navArrow} width={12} height={12} alt="" />}
@@ -233,10 +234,10 @@ const Index = () => {
             Account
           </Typography>
         </Breadcrumbs>
-        <Typography className={classes.bodyPadding} variant="h6">
+        <Typography className={classes.bodyPadding} variant="h5">
           ACCOUNT
         </Typography>
-        <Typography className={classes.para} variant="p">
+        <Typography className={classes.para} variant="body1">
           Account represents and induvial customer account, organization or
           partner involved with business
         </Typography>
@@ -448,7 +449,7 @@ const Index = () => {
           </ButtonBase>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

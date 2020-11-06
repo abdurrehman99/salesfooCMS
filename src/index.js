@@ -7,6 +7,14 @@ import store from "./redux/store";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
+  props: {
+    MuiTypography: {
+      variantMapping: {
+        body1: "p",
+        body2: "p",
+      },
+    },
+  },
   spacing: 0,
   palette: {
     primary: { main: "#082E52" },
