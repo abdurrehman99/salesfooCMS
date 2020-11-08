@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { makeStyles, withStyles, useTheme } from "@material-ui/core/styles";
+import SwipeableViews from "react-swipeable-views";
 import {
   Typography,
   Button,
   Grid,
+  AppBar,
+  Tabs,
+  Tab,
   TextField,
   InputAdornment,
-  Table,
+  InputLabel,
   TableBody,
   TableCell,
   TableHead,
@@ -14,13 +18,12 @@ import {
   TableFooter,
   TablePagination,
   Avatar,
-  Breadcrumbs,
   IconButton,
-  ButtonGroup,
-  ButtonBase,
+  Input,
+  Box,
   Container,
 } from "@material-ui/core";
-import Circle from "../CommonComponents/Circle";
+import Switch from "../CommonComponents/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
 import Add from "@material-ui/icons/Add";
@@ -32,9 +35,9 @@ import callIcon from "../../assets/icons/call.svg";
 import rightArrow from "../../assets/icons/rightArrow.svg";
 
 import IBMLogo from "../../assets/icons/IBM.svg";
-import arrowUp from "../../assets/icons/arrowUp.svg";
+import EditIcon from "../../assets/icons/edit.svg";
 import delteIcon from "../../assets/icons/delete.svg";
-import PlusIcon from "../../assets/icons/plus.svg";
+import closeIcon from "../../assets/icons/close.svg";
 import RefreshIcon from "../../assets/icons/refresh.svg";
 import Line from "../CommonComponents/Line";
 
@@ -67,14 +70,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textTransform: "none",
   },
-  link: {
-    display: "flex",
+  appBar: {
+    boxShadow: "none",
   },
   table: {
     border: 0,
   },
   marginLeft: {
-    marginLeft: 85,
+    paddingLeft: 85,
   },
   iconButton: {
     paddingTop: 0,
@@ -115,10 +118,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "light",
     paddingBottom: 0,
   },
-  box: {
-    marginLeft: 40.1,
-    // marginTop: 20,
-  },
   footerRow: {
     width: "100%",
     margin: "auto",
@@ -139,7 +138,24 @@ const useStyles = makeStyles((theme) => ({
 
 const Index = () => {
   const classes = useStyles();
+  const theme = useTheme();
 
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+
+  function a11yProps(index) {
+    return {
+      id: `full-width-tab-${index}`,
+      "aria-controls": `full-width-tabpanel-${index}`,
+    };
+  }
   return (
     <Container style={{ padding: 0, margin: 0 }} maxWidth="xl">
       <Grid
@@ -148,9 +164,8 @@ const Index = () => {
         justify="space-between"
         alignItems="center"
         className={classes.marginLeft}
-        // spacing={2}
       >
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={3}>
           <Grid container direction="row" alignItems="center">
             <Avatar alt="SalesFoo" src={IBMLogo} className={classes.avatar} />
             <div>
@@ -163,7 +178,7 @@ const Index = () => {
             </div>
           </Grid>
         </Grid>
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} sm={7}>
           <Button
             className={classes.actionButtons}
             startIcon={<img src={saveIcon} alt="" width={14} height={14} />}
@@ -193,6 +208,94 @@ const Index = () => {
             New Contact
           </Button>
         </Grid>
+      </Grid>
+      <Grid
+        container
+        direction="row"
+        justify="space-between"
+        alignItems="center"
+        className={classes.marginLeft}
+      >
+        <Grid item xs={12} sm={3}>
+          <p>INDUSTRY TYPE</p>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <p>PHONE NUMBER</p>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <p>WEBSITE</p>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <p>ACCOUNT OWNER</p>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        direction="row"
+        justify="space-between"
+        alignItems="center"
+        className={classes.marginLeft}
+      >
+        <Grid item xs={12} sm={3}>
+          <p>Information and Technology</p>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <p>444-222-1233</p>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <p>https://google.com</p>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <Grid container row alignItems="center">
+            <Avatar alt="SalesFoo" src={{}} />
+            <p>Hassan Ahmed</p>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        direction="row"
+        // justify="space-between"
+        // alignItems="center"
+        className={classes.marginLeft}
+        // spacing={2}
+      >
+        <Grid item xs={12} sm={7}>
+          <AppBar className={classes.appBar} position="static" color="white">
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              variant="fullWidth"
+            >
+              <Tab label="Detail" {...a11yProps(0)} />
+              <Tab label="Related" {...a11yProps(1)} />
+              <Tab label="Activities" {...a11yProps(2)} />
+              <Tab label="News" {...a11yProps(3)} />
+            </Tabs>
+          </AppBar>
+          <SwipeableViews
+            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+            index={value}
+            onChangeIndex={handleChangeIndex}
+          >
+            <p>Industry type</p>
+            <Switch />
+            {/* <InputLabel>Industry type</InputLabel> */}
+            {/* <Input
+              type={"text"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton onClick={() => {}}>
+                    <img src={closeIcon} width={16} height={16} alt="" />
+                  </IconButton>
+                </InputAdornment>
+              }
+            /> */}
+          </SwipeableViews>
+        </Grid>
+        <Grid item xs={12} sm={5}></Grid>
       </Grid>
     </Container>
   );
