@@ -87,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     paddingTop: 100,
-    backgroundColor: "white",
     padding: theme.spacing(0),
   },
   navLogo: {

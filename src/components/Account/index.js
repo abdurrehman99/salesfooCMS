@@ -14,6 +14,7 @@ import {
   TableFooter,
   TablePagination,
   Avatar,
+  MenuItem,
   Breadcrumbs,
   IconButton,
   ButtonGroup,
@@ -21,7 +22,8 @@ import {
   Container,
 } from "@material-ui/core";
 import Circle from "../CommonComponents/Circle";
-// import FullpageLoader from "../CommonComponents/FullpageLoader";
+import { Link } from "react-router-dom";
+
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
 import Add from "@material-ui/icons/Add";
@@ -221,7 +223,7 @@ const Index = () => {
   const [toggle, setToggle] = useState([false, false, false, false, false]);
 
   return (
-    <Container style={{ padding: 0, margin: 0 }} maxWidth="xl">
+    <div>
       <div className={classes.box}>
         <Breadcrumbs
           separator={<img src={navArrow} width={12} height={12} alt="" />}
@@ -380,10 +382,9 @@ const Index = () => {
             {rows.map((row, index) => (
               <StyledTableRow key={index}>
                 <StyledTableCell align="center">
-                  <Circle
-                    onClick={() => console.log("row clicked")}
-                    active={false}
-                  />
+                  <Link to={"/account-details"}>
+                    <Circle active={false} />
+                  </Link>
                 </StyledTableCell>
                 <StyledTableCell align="left">
                   <div className={classes.inlineFlex}>
@@ -449,7 +450,7 @@ const Index = () => {
           </ButtonBase>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
