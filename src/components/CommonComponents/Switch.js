@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { purple } from "@material-ui/core/colors";
 import FormGroup from "@material-ui/core/FormGroup";
@@ -16,14 +16,14 @@ const AntSwitch = withStyles((theme) => ({
   },
   switchBase: {
     padding: 2,
-    color: theme.palette.grey[500],
+    color: "#D9E0FE",
     "&$checked": {
       transform: "translateX(12px)",
       color: theme.palette.common.white,
       "& + $track": {
         opacity: 1,
-        backgroundColor: theme.palette.primary.main,
-        borderColor: theme.palette.primary.main,
+        backgroundColor: "#D9E0FE",
+        borderColor: "#D9E0FE",
       },
     },
   },
@@ -33,7 +33,7 @@ const AntSwitch = withStyles((theme) => ({
     boxShadow: "none",
   },
   track: {
-    border: `1px solid ${theme.palette.grey[500]}`,
+    border: `1px solid ${"#D9E0FE"}`,
     borderRadius: 16 / 2,
     opacity: 1,
     backgroundColor: theme.palette.common.white,
@@ -42,7 +42,7 @@ const AntSwitch = withStyles((theme) => ({
 }))(Switch);
 
 export default function CustomizedSwitches() {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     checkedA: true,
     checkedB: true,
     checkedC: true,
@@ -55,7 +55,6 @@ export default function CustomizedSwitches() {
   return (
     <Typography component="div">
       <Grid component="label" container alignItems="center" spacing={1}>
-        <Grid item>Off</Grid>
         <Grid item>
           <AntSwitch
             checked={state.checkedC}
@@ -63,7 +62,6 @@ export default function CustomizedSwitches() {
             name="checkedC"
           />
         </Grid>
-        <Grid item>On</Grid>
       </Grid>
     </Typography>
   );

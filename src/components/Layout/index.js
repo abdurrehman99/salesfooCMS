@@ -38,7 +38,7 @@ import MenuIcon from "../../assets/icons/Menu.svg";
 // import SearchIcon from "../../assets/icons/Search.svg";
 import IconButton from "@material-ui/core/IconButton";
 
-const drawerWidth = 300;
+const drawerWidth = 320;
 
 const useStyles = makeStyles((theme) => ({
   root: {

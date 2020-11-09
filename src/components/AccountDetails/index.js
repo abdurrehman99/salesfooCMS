@@ -23,7 +23,7 @@ import {
   Box,
   Container,
 } from "@material-ui/core";
-import Switch from "../CommonComponents/Switch";
+import DetailTab from "./DetailTab";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
 import Add from "@material-ui/icons/Add";
@@ -156,6 +156,26 @@ const Index = () => {
       "aria-controls": `full-width-tabpanel-${index}`,
     };
   }
+
+  function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box p={3}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
   return (
     <Container style={{ padding: 0, margin: 0 }} maxWidth="xl">
       <Grid
@@ -165,8 +185,13 @@ const Index = () => {
         alignItems="center"
         className={classes.marginLeft}
       >
-        <Grid item xs={12} sm={3}>
-          <Grid container direction="row" alignItems="center">
+        <Grid item xs={12} sm={2}>
+          <Grid
+            container
+            direction="row"
+            alignItems="center"
+            justify="space-between"
+          >
             <Avatar alt="SalesFoo" src={IBMLogo} className={classes.avatar} />
             <div>
               <Typography className={classes.bodyPadding} variant="h5">
@@ -178,7 +203,7 @@ const Index = () => {
             </div>
           </Grid>
         </Grid>
-        <Grid item xs={12} sm={7}>
+        <Grid item xs={12} sm={8}>
           <Button
             className={classes.actionButtons}
             startIcon={<img src={saveIcon} alt="" width={14} height={14} />}
@@ -280,19 +305,18 @@ const Index = () => {
             index={value}
             onChangeIndex={handleChangeIndex}
           >
-            <p>Industry type</p>
-            <Switch />
-            {/* <InputLabel>Industry type</InputLabel> */}
-            {/* <Input
-              type={"text"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton onClick={() => {}}>
-                    <img src={closeIcon} width={16} height={16} alt="" />
-                  </IconButton>
-                </InputAdornment>
-              }
-            /> */}
+            <TabPanel value={value} index={0} dir={theme.direction}>
+              <DetailTab />
+            </TabPanel>
+            <TabPanel value={value} index={1} dir={theme.direction}>
+              Item Two
+            </TabPanel>
+            <TabPanel value={value} index={2} dir={theme.direction}>
+              Item Three
+            </TabPanel>
+            <TabPanel value={value} index={2} dir={theme.direction}>
+              Item Three
+            </TabPanel>
           </SwipeableViews>
         </Grid>
         <Grid item xs={12} sm={5}></Grid>
