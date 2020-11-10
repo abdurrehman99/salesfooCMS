@@ -73,11 +73,21 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     boxShadow: "none",
   },
+  accountAvatar: {
+    marginRight: 10,
+  },
   table: {
     border: 0,
   },
+  topRow: {
+    marginTop: 85,
+    marginBottom: 50,
+    paddingLeft: 85,
+  },
   marginLeft: {
     paddingLeft: 85,
+    marginBottom: 16,
+    marginTop: 16,
   },
   iconButton: {
     paddingTop: 0,
@@ -134,6 +144,16 @@ const useStyles = makeStyles((theme) => ({
     width: 38,
     height: 39,
   },
+  upperText: {
+    fontSize: 13,
+    color: "#415767",
+  },
+  tabs: {
+    textTransform: "none",
+    fontWeight: "bold",
+    fontSize : 18
+     
+  },
 }));
 
 const Index = () => {
@@ -183,7 +203,7 @@ const Index = () => {
         direction="row"
         justify="space-between"
         alignItems="center"
-        className={classes.marginLeft}
+        className={classes.topRow}
       >
         <Grid item xs={12} sm={2}>
           <Grid
@@ -238,20 +258,28 @@ const Index = () => {
         container
         direction="row"
         justify="space-between"
-        alignItems="center"
+        // alignItems="center"
         className={classes.marginLeft}
       >
         <Grid item xs={12} sm={3}>
-          <p>INDUSTRY TYPE</p>
+          <Typography className={classes.upperText} variant="body2">
+            INDUSTRY TYPE
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <p>PHONE NUMBER</p>
+          <Typography className={classes.upperText} variant="body2">
+            PHONE NUMBER
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <p>WEBSITE</p>
+          <Typography className={classes.upperText} variant="body2">
+            WEBSITE
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <p>ACCOUNT OWNER</p>
+          <Typography className={classes.upperText} variant="body2">
+            ACCOUNT OWNER
+          </Typography>
         </Grid>
       </Grid>
       <Grid
@@ -262,18 +290,26 @@ const Index = () => {
         className={classes.marginLeft}
       >
         <Grid item xs={12} sm={3}>
-          <p>Information and Technology</p>
+          <Typography className={classes.upperText} variant="body2">
+            Information and Technology
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <p>444-222-1233</p>
+          <Typography className={classes.upperText} variant="body2">
+            444-222-1233
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
-          <p>https://google.com</p>
+          <Typography className={classes.upperText} variant="body2">
+            https://google.com
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={3}>
           <Grid container row alignItems="center">
-            <Avatar alt="SalesFoo" src={{}} />
-            <p>Hassan Ahmed</p>
+            <Avatar className={classes.accountAvatar} alt="SalesFoo" src={{}} />
+            <Typography className={classes.upperText} variant="body2">
+              Hassan Ahmed
+            </Typography>
           </Grid>
         </Grid>
       </Grid>
@@ -294,10 +330,14 @@ const Index = () => {
               textColor="primary"
               variant="fullWidth"
             >
-              <Tab label="Detail" {...a11yProps(0)} />
-              <Tab label="Related" {...a11yProps(1)} />
-              <Tab label="Activities" {...a11yProps(2)} />
-              <Tab label="News" {...a11yProps(3)} />
+              <Tab className={classes.tabs} label="Detail" {...a11yProps(0)} />
+              <Tab className={classes.tabs} label="Related" {...a11yProps(1)} />
+              <Tab
+                className={classes.tabs}
+                label="Activities"
+                {...a11yProps(2)}
+              />
+              <Tab className={classes.tabs} label="News" {...a11yProps(3)} />
             </Tabs>
           </AppBar>
           <SwipeableViews
@@ -314,7 +354,7 @@ const Index = () => {
             <TabPanel value={value} index={2} dir={theme.direction}>
               Item Three
             </TabPanel>
-            <TabPanel value={value} index={2} dir={theme.direction}>
+            <TabPanel value={value} index={3} dir={theme.direction}>
               Item Three
             </TabPanel>
           </SwipeableViews>

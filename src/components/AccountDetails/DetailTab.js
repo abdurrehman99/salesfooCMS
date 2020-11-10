@@ -10,6 +10,7 @@ import {
   IconButton,
   InputAdornment,
   Typography,
+  Avatar,
 } from "@material-ui/core";
 import editIcon from "../../assets/icons/edit.svg";
 import Switch from "../../components/CommonComponents/Switch";
@@ -19,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
     width: "95%",
     marginBottom: 26,
   },
+  avatar: {
+    width: 30,
+    height: 30,
+    marginRight: 5,
+  },
+  dropdown: {},
   selectEmpty: {},
 }));
 
@@ -33,12 +40,10 @@ const DetailTab = () => {
     <Grid container direction="row" alignItems="" justify="space-between">
       <Grid item xs={12} sm={6}>
         <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-helper-label">
-            Industry Type
-          </InputLabel>
+          <InputLabel id="industry-type">Industry Type</InputLabel>
           <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
+            labelId="industry-type"
+            className={classes.dropdown}
             value={industry}
             onChange={handleChange}
           >
@@ -136,6 +141,30 @@ const DetailTab = () => {
         <div className={classes.formControl}>
           <Typography>Allow Phone Call</Typography>
           <Switch />
+        </div>
+        <div className={classes.formControl}>
+          <Typography>Created by</Typography>
+          <Grid
+            container
+            direction="row"
+            alignItems="center"
+            justify="flex-start"
+            style={{
+              borderBottom: "1px solid black",
+              borderBottomColor: "#707070",
+              paddingBottom: 5,
+            }}
+          >
+            <Grid item xs={6}>
+              <Grid container direction="row" alignItems="center">
+                <Avatar alt="SalesFoo" src={{}} className={classes.avatar} />
+                <Typography style={{ fontSize: 17 }}>Hassan Ahmed</Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography style={{ fontSize: 13 }}>13/04/2020 02:00</Typography>
+            </Grid>
+          </Grid>
         </div>
       </Grid>
       <Grid item xs={12} sm={6}>
@@ -249,6 +278,30 @@ const DetailTab = () => {
         <div className={classes.formControl}>
           <Typography>Allow Post mail</Typography>
           <Switch />
+        </div>
+        <div className={classes.formControl}>
+          <Typography>Last Modified by</Typography>
+          <Grid
+            container
+            direction="row"
+            alignItems="center"
+            justify="flex-start"
+            style={{
+              borderBottom: "1px solid black",
+              borderBottomColor: "#707070",
+              paddingBottom: 5,
+            }}
+          >
+            <Grid item xs={6}>
+              <Grid container direction="row" alignItems="center">
+                <Avatar alt="SalesFoo" src={{}} className={classes.avatar} />
+                <Typography style={{ fontSize: 17 }}>Hassan Ahmed</Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography style={{ fontSize: 13 }}>13/04/2020 02:00</Typography>
+            </Grid>
+          </Grid>
         </div>
       </Grid>
     </Grid>

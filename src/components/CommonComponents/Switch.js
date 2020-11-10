@@ -9,17 +9,17 @@ import Typography from "@material-ui/core/Typography";
 
 const AntSwitch = withStyles((theme) => ({
   root: {
-    width: 28,
-    height: 16,
+    width: 40,
+    height: 23,
     padding: 0,
     display: "flex",
   },
   switchBase: {
-    padding: 2,
+    padding: 5,
     color: "#D9E0FE",
     "&$checked": {
-      transform: "translateX(12px)",
-      color: theme.palette.common.white,
+      transform: "translateX(18px)",
+      color: "#0582ff",
       "& + $track": {
         opacity: 1,
         backgroundColor: "#D9E0FE",
@@ -28,13 +28,13 @@ const AntSwitch = withStyles((theme) => ({
     },
   },
   thumb: {
-    width: 12,
-    height: 12,
+    width: 13,
+    height: 13,
     boxShadow: "none",
   },
   track: {
     border: `1px solid ${"#D9E0FE"}`,
-    borderRadius: 16 / 2,
+    borderRadius: 23 / 2,
     opacity: 1,
     backgroundColor: theme.palette.common.white,
   },
@@ -43,9 +43,9 @@ const AntSwitch = withStyles((theme) => ({
 
 export default function CustomizedSwitches() {
   const [state, setState] = useState({
-    checkedA: true,
-    checkedB: true,
-    checkedC: true,
+    checkedA: false,
+    checkedB: false,
+    checkedC: false,
   });
 
   const handleChange = (event) => {
